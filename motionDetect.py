@@ -11,7 +11,7 @@ cap = cv.VideoCapture(0)
 # Iterate through images
 while True:
   #Read a frame from the Video
-  check, frame = video.read()
+  check, frame = cap.read()
 
   #Initialize motion to 0 (no motion)
   motion = 0
