@@ -67,10 +67,7 @@ while True:
   key = cv.waitKey(1) 
   # if q entered whole process will stop 
   if key == ord('q'): 
-      # if something is movingthen it append the end time of movement 
-      if motion == 1: 
-          time.append(datetime.now()) 
-      break
+    break
 
 video.release()
 cv.destroyAllWindows()  
