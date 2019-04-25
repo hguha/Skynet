@@ -9,7 +9,7 @@ GPIO.setup(9, GPIO.OUT)
 GPIO.setup(10, GPIO.OUT)
 GPIO.setup(11, GPIO.OUT)
 
-def lightUp(color)
+def lightUp(color):
   if color == 'red':
     GPIO.output(9, True)
     time.sleep(1)
@@ -29,3 +29,13 @@ def allLightsOff():
     GPIO.output(11, False)
     GPIO.cleanup()
     sys.exit(0)
+
+
+lightUp('green')
+time.sleep(2)
+lightUp('red')
+time.sleep(2)
+lightUp('yellow')
+
+# Cleanup GPIO
+GPIO.cleanup()

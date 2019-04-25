@@ -17,7 +17,7 @@ while True:
   motion = 0
 
   #Convert color image to grayscale
-  gray = cv.cvtcolor(frame, cv.COLOR_BGR2GRAY)
+  gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
   
   #Implement gaussian blur on image
   gray = cv.GaussianBlur(gray, (21,21), 0)
@@ -34,19 +34,19 @@ while True:
 
   # If change in between static background and 
   # current frame is greater than 30 it will show white color(255) 
-  thresh_frame = cv.threshold(diff_frame, 30, 255, cv2.THRESH_BINARY)[1] 
+  thresh_frame = cv.threshold(diff_frame, 60, 255, cv.THRESH_BINARY)[1] 
   thresh_frame = cv.dilate(thresh_frame, None, iterations = 2)
 
   # Finding contour of moving object 
   (_, cnts, _) = cv.findContours(thresh_frame.copy(),  
-                      cv.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+                      cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
 
   for contour in cnts: 
     if cv.contourArea(contour) < 10000: 
       continue
     motion = 1
 
-    (x, y, w, h) = cv2.boundingRect(contour) 
+    (x, y, w, h) = cv.boundingRect(contour) 
     # making green rectangle arround the moving object 
     cv.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 3) 
 
