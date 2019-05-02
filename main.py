@@ -150,7 +150,7 @@ def activateCamera():
                           cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
 
       for contour in cnts: 
-        if cv.contourArea(contour) < 10000: 
+        if cv.contourArea(contour) < 1000: 
           continue
         motion = 1
 
